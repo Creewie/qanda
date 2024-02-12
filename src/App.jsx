@@ -2,7 +2,8 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  
+
+  // Funkcje potem
   var pytania = ['que']
 
   return (
