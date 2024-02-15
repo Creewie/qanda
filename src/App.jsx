@@ -1,21 +1,16 @@
 import { useState } from 'react'
 import './App.css'
+import Pytajnik from './questON'
+import Start from './start'
 
 function App() {
-
-  // Funkcje potem
-  var pytania = ['que']
+  
+  const [ gamemode, setGamemode ] = useState(false)
 
   return (
     <>
       <div>
-        <h1>Gra: Q&A</h1>
-        <p>Pytanie</p>
-        <input type='text' id='odpowiedz' placeholder='Tu wpisz odpowiedź'></input>
-        <p>Punkty</p>
-        <button id='rozpocznij'>Rozpocznij gre</button>
-        <p>Zakończenie gry</p>
-        <button id='zrestartuj'>Zrestartuj gre</button>
+        { gamemode ? <Pytajnik/>:<Start setGamemode={setGamemode} />}
       </div>
     </>
   )
