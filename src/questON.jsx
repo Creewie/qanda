@@ -11,7 +11,8 @@ export default function Pytajnik(){
         <>
             { quesiton >= pytania.length ? (
             <>
-                {`Liczba uzyskanych punktów: ${points}`}
+                <h1>Koniec!</h1>
+                <h1 id="qst">Liczba uzyskanych punktów: <span style={{color:'#646cff'}}>{points}</span></h1>
                 <button onClick={()=>{
                     location.reload()
                 }}>Zacznij od początku!</button>
@@ -19,13 +20,14 @@ export default function Pytajnik(){
             ):(
                <>
                 <span>
-                    {pytania[quesiton].pytanie}
+                    <h1>Pytanie nr. {quesiton+1}</h1>
+                    <p id='qst'>{pytania[quesiton].pytanie}</p>
                 </span>
-                <div>
-                    {pytania[quesiton].odpowiedzi.map((odp,index)=>(<button onClick={()=>setAnswer(index)}>{odp}</button>))}
+                <div style={{display:"flex", gap:'7px', justifyContent:"center"}}>
+                    {pytania[quesiton].odpowiedzi.map((odp,index)=>(<button className={`${answer == index && "qst"}`} onClick={()=>setAnswer(index)}>{odp}</button>))}
                 </div>
                 <div>
-                    <button onClick={()=>{
+                    <button style={{margin:'5px'}} onClick={()=>{
                         if (answer == -1) {
                             return
                         }
