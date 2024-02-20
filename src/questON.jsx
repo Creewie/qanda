@@ -7,12 +7,15 @@ export default function Pytajnik(){
     const [answer, setAnswer] = useState(-1)
     const [points, setPoints] = useState(0)
 
+    var zdane
+    { points >= (0.8*quesiton) ? (zdane = "Zdane!"):(zdane = "Nie zdane :(") }
+
     return(
         <>
             { quesiton >= pytania.length ? (
             <>
-                <h1>Koniec!</h1>
-                <h1 id="qst">Liczba uzyskanych punktów: <span style={{color:'#646cff'}}>{points}</span></h1>
+                <h1>{zdane}</h1>
+                <h1 id="qst">Liczba uzyskanych punktów: <span style={{color:'#646cff'}}>{points}/{quesiton}</span></h1>
                 <button onClick={()=>{
                     location.reload()
                 }}>Zacznij od początku!</button>
@@ -75,5 +78,25 @@ const pytania = [
       pytanie: "Jaki minimalny odstęp od pojazdu poprzedzającego powinieneś zachować, stojąc w tunelu, w zatorze drogowym tzw korku?",
       odpowiedzi: ["3 m", "5 m", "7 m"],
       poprawna: 1
+    },
+    {
+      pytanie: "Czy holowany pojazd ma wpływ na pole widzenia kierowcy?",
+      odpowiedzi: ["Nie ma żadnego wpływu na ograniczenie pola widzenia", "Tylko podczas wykonywania manewru zawracania na skrzyżowaniu", "Ma wpływ na ograniczenie pola widzenia"],
+      poprawna: 2
+    },
+    {
+      pytanie: "Który z wymienionych elementów stanowi obowiązkowe wyposażenie każdego samochodu osobowego?",
+      odpowiedzi: ["Apteczka", "Gaśnica", "Koło zapasowe"],
+      poprawna: 2
+    },
+    {
+      pytanie: "Którą z wymienionych czynności powinieneś wykonać, aby płynnie ruszyć z miejsca?",
+      odpowiedzi: ["Stopniowo zwalniać pedał sprzęgła", "Gwałtownie zwolnić pedał sprzęgła","Najpierw znacznie zwiększyć obroty silnika, następnie szybko zwolnić pedał sprzęgła"],
+      poprawna: 0
+    },
+    {
+      pytanie: "Co nazywamy zespołem pojazdów?",
+      odpowiedzi: ["Samochód osobowy z przyczepą", "Motocykl z bocznym wózkiem", "Pojazdy silnikowe złączone w celu holowania"],
+      poprawna: 0
     }
     ]
